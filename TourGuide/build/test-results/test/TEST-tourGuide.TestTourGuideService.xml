@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tourGuide.TestTourGuideService" tests="5" skipped="1" failures="0" errors="0" timestamp="2022-07-11T09:38:26" hostname="DESKTOP-LLPVODE" time="0.102">
+  <properties/>
+  <testcase name="getUserLocation" classname="tourGuide.TestTourGuideService" time="0.045"/>
+  <testcase name="addUser" classname="tourGuide.TestTourGuideService" time="0.003"/>
+  <testcase name="getAllUsers" classname="tourGuide.TestTourGuideService" time="0.006"/>
+  <testcase name="trackUser" classname="tourGuide.TestTourGuideService" time="0.043"/>
+  <testcase name="getNearbyAttractions" classname="tourGuide.TestTourGuideService" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[11:38:26.607 [Test worker] INFO tourGuide.service.TourGuideService - TestMode enabled
+11:38:26.607 [Test worker] DEBUG tourGuide.service.TourGuideService - Initializing users
+11:38:26.608 [Test worker] DEBUG tourGuide.service.TourGuideService - Created 0 internal test users.
+11:38:26.608 [Test worker] DEBUG tourGuide.service.TourGuideService - Finished initializing users
+11:38:26.623 [pool-5-thread-1] DEBUG tourGuide.tracker.Tracker - Begin Tracker. Tracking 0 users.
+11:38:26.625 [pool-5-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker Time Elapsed: 0 seconds.
+11:38:26.626 [pool-5-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker sleeping
+11:38:26.651 [Test worker] DEBUG tourGuide.tracker.Tracker - Tracker stopping (0)
+11:38:26.651 [pool-5-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker stopping (2)
+11:38:26.653 [Test worker] INFO tourGuide.service.TourGuideService - TestMode enabled
+11:38:26.653 [Test worker] DEBUG tourGuide.service.TourGuideService - Initializing users
+11:38:26.653 [Test worker] DEBUG tourGuide.service.TourGuideService - Created 0 internal test users.
+11:38:26.653 [Test worker] DEBUG tourGuide.service.TourGuideService - Finished initializing users
+11:38:26.654 [Test worker] DEBUG tourGuide.tracker.Tracker - Tracker stopping (0)
+11:38:26.656 [Test worker] INFO tourGuide.service.TourGuideService - TestMode enabled
+11:38:26.656 [Test worker] DEBUG tourGuide.service.TourGuideService - Initializing users
+11:38:26.657 [Test worker] DEBUG tourGuide.service.TourGuideService - Created 0 internal test users.
+11:38:26.657 [Test worker] DEBUG tourGuide.service.TourGuideService - Finished initializing users
+11:38:26.661 [Test worker] DEBUG tourGuide.tracker.Tracker - Tracker stopping (0)
+11:38:26.664 [Test worker] INFO tourGuide.service.TourGuideService - TestMode enabled
+11:38:26.664 [Test worker] DEBUG tourGuide.service.TourGuideService - Initializing users
+11:38:26.664 [Test worker] DEBUG tourGuide.service.TourGuideService - Created 0 internal test users.
+11:38:26.664 [Test worker] DEBUG tourGuide.service.TourGuideService - Finished initializing users
+11:38:26.672 [pool-6-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker stopping (1)
+11:38:26.687 [pool-7-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker stopping (1)
+11:38:26.687 [pool-8-thread-1] DEBUG tourGuide.tracker.Tracker - Begin Tracker. Tracking 0 users.
+11:38:26.687 [pool-8-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker Time Elapsed: 0 seconds.
+11:38:26.688 [pool-8-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker sleeping
+11:38:26.707 [Test worker] DEBUG tourGuide.tracker.Tracker - Tracker stopping (0)
+11:38:26.707 [pool-8-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker stopping (2)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -13,8 +13,9 @@ import tourGuide.service.TourGuideService;
 import tourGuide.user.User;
 
 public class Tracker extends Thread {
-	private Logger logger = LoggerFactory.getLogger(Tracker.class);
+	private final Logger logger = LoggerFactory.getLogger(Tracker.class);
 	private static final long trackingPollingInterval = TimeUnit.MINUTES.toSeconds(5);
+	//private static final long trackingPollingInterval = TimeUnit.SECONDS.toSeconds(1);
 	private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 	private final TourGuideService tourGuideService;
 	private boolean stop = false;
@@ -29,6 +30,7 @@ public class Tracker extends Thread {
 	 * Assures to shut down the Tracker thread
 	 */
 	public void stopTracking() {
+		logger.debug("Tracker stopping (0)");
 		stop = true;
 		executorService.shutdownNow();
 	}
@@ -38,7 +40,7 @@ public class Tracker extends Thread {
 		StopWatch stopWatch = new StopWatch();
 		while(true) {
 			if(Thread.currentThread().isInterrupted() || stop) {
-				logger.debug("Tracker stopping");
+				logger.debug("Tracker stopping (1)");
 				break;
 			}
 			
@@ -53,6 +55,7 @@ public class Tracker extends Thread {
 				logger.debug("Tracker sleeping");
 				TimeUnit.SECONDS.sleep(trackingPollingInterval);
 			} catch (InterruptedException e) {
+				logger.debug("Tracker stopping (2)");
 				break;
 			}
 		}

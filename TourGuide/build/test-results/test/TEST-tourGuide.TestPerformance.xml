@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tourGuide.TestPerformance" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-07-11T09:36:47" hostname="DESKTOP-LLPVODE" time="60.064">
+  <properties/>
+  <testcase name="highVolumeTrackLocation" classname="tourGuide.TestPerformance" time="16.587"/>
+  <testcase name="highVolumeGetRewards" classname="tourGuide.TestPerformance" time="43.473"/>
+  <system-out><![CDATA[11:36:47.339 [Test worker] INFO tourGuide.service.TourGuideService - TestMode enabled
+11:36:47.355 [Test worker] DEBUG tourGuide.service.TourGuideService - Initializing users
+11:36:47.543 [Test worker] DEBUG tourGuide.service.TourGuideService - Created 100 internal test users.
+11:36:47.543 [Test worker] DEBUG tourGuide.service.TourGuideService - Finished initializing users
+Début boucle
+11:36:47.574 [pool-1-thread-1] DEBUG tourGuide.tracker.Tracker - Begin Tracker. Tracking 100 users.
+Fin boucle
+11:37:03.687 [Test worker] DEBUG tourGuide.tracker.Tracker - Tracker stopping (0)
+highVolumeTrackLocation: Time Elapsed: 16 seconds.
+11:37:03.689 [Test worker] INFO tourGuide.service.TourGuideService - TestMode enabled
+11:37:03.689 [Test worker] DEBUG tourGuide.service.TourGuideService - Initializing users
+11:37:03.736 [Test worker] DEBUG tourGuide.service.TourGuideService - Created 100 internal test users.
+11:37:03.736 [Test worker] DEBUG tourGuide.service.TourGuideService - Finished initializing users
+11:37:03.736 [pool-2-thread-1] DEBUG tourGuide.tracker.Tracker - Begin Tracker. Tracking 100 users.
+11:37:04.494 [pool-1-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker Time Elapsed: 16 seconds.
+11:37:04.494 [pool-1-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker sleeping
+11:37:47.164 [Test worker] DEBUG tourGuide.tracker.Tracker - Tracker stopping (0)
+highVolumeGetRewards: Time Elapsed: 43 seconds.
+]]></system-out>
+  <system-err><![CDATA[juil. 11, 2022 11:36:47 AM org.javamoney.moneta.DefaultMonetaryContextFactory createMonetaryContextNonNullConfig
+INFOS: Using custom MathContext: precision=256, roundingMode=HALF_EVEN
+]]></system-err>
+</testsuite>
