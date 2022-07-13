@@ -66,7 +66,9 @@ public class User {
 	}
 	
 	public void addToVisitedLocations(VisitedLocation visitedLocation) {
-		visitedLocations.add(visitedLocation);
+		synchronized (visitedLocations) {
+			visitedLocations.add(visitedLocation);
+		}
 	}
 	
 	public List<VisitedLocation> getVisitedLocations() {
@@ -76,9 +78,10 @@ public class User {
 	public void clearVisitedLocations() {
 		visitedLocations.clear();
 	}
-	
+
+	//J'ai enlevé le négation et rajouté .attractionName
 	public void addUserReward(UserReward userReward) {
-		if(userRewards.stream().filter(r -> !r.attraction.attractionName.equals(userReward.attraction)).count() == 0) {
+		if(userRewards.stream().filter(r -> r.attraction.attractionName.equals(userReward.attraction.attractionName)).count() == 0) {
 			userRewards.add(userReward);
 		}
 	}
@@ -106,5 +109,4 @@ public class User {
 	public List<Provider> getTripDeals() {
 		return tripDeals;
 	}
-
 }

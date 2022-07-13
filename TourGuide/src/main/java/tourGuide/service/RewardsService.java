@@ -3,6 +3,8 @@ package tourGuide.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import gpsUtil.GpsUtil;
@@ -18,7 +20,8 @@ public class RewardsService {
     private static final double STATUTE_MILES_PER_NAUTICAL_MILE = 1.15077945;
 
 	// proximity in miles
-    private final int defaultProximityBuffer = 10;
+	private final Logger logger = LoggerFactory.getLogger(RewardsService.class);
+	private final int defaultProximityBuffer = 10;
 	private int proximityBuffer = defaultProximityBuffer;
 	private final int attractionProximityRange = 200;
 	private final GpsUtil gpsUtil;
@@ -37,12 +40,16 @@ public class RewardsService {
 		proximityBuffer = defaultProximityBuffer;
 	}
 	
-	public void calculateRewards(User user) {
-		//List<VisitedLocation> userLocations = user.getVisitedLocations();
-		List<VisitedLocation> userLocations = new ArrayList<>(user.getVisitedLocations());
-			List<Attraction> attractions = gpsUtil.getAttractions();
 
+	public void calculateRewards(User user) {
+		List<VisitedLocation> userLocations = user.getVisitedLocations();
+		List<Attraction> attractions = gpsUtil.getAttractions();
+
+		logger.debug("Begin Tracker. #3.1.0 Tracking USER " + user.getUserName());
+
+		synchronized (userLocations) {
 			for (VisitedLocation visitedLocation : userLocations) {
+				logger.debug("Begin Tracker. #3.1.1 Tracking USER " + user.getUserName() + " latitutde " + visitedLocation.location.latitude + " longitude " + visitedLocation.location.longitude);
 				for (Attraction attraction : attractions) {
 					if (user.getUserRewards().stream().filter(r -> r.attraction.attractionName.equals(attraction.attractionName)).count() == 0) {
 						if (nearAttraction(visitedLocation, attraction)) {
@@ -50,8 +57,11 @@ public class RewardsService {
 						}
 					}
 				}
+				logger.debug("Begin Tracker. #3.1.2 Tracking USER " + user.getUserName());
 			}
 		}
+		logger.debug("Begin Tracker. #3.2 Tracking USER " + user.getUserName());
+	}
 
 	public boolean isWithinAttractionProximity(Attraction attraction, Location location) {
 		return !(getDistance(attraction, location) > attractionProximityRange);

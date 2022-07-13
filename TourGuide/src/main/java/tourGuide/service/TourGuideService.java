@@ -84,11 +84,16 @@ public class TourGuideService {
 	}
 
 	//synchronized pour éviter le bug de concurrence quand je lance le test de performance de localisation
-	public synchronized VisitedLocation trackUserLocation(User user) {
+	public VisitedLocation trackUserLocation(User user) {
 		Locale.setDefault(Locale.US);
 		VisitedLocation visitedLocation = gpsUtil.getUserLocation(user.getUserId());
-		user.addToVisitedLocations(visitedLocation);
+		logger.debug("Begin Tracker. #1 Tracking USER " + user.getUserName());
+		// synchronized (user.getVisitedLocations()) {
+			user.addToVisitedLocations(visitedLocation);
+		// }
+		logger.debug("Begin Tracker. #2 Tracking USER " + user.getUserName()  + " latitutde " + visitedLocation.location.latitude+ " longitude " + visitedLocation.location.longitude);
 		rewardsService.calculateRewards(user);
+		logger.debug("Begin Tracker. #4 Tracking USER " + user.getUserName());
 		return visitedLocation;
 	}
 
